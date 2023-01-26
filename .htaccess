@@ -1,0 +1,38 @@
+<IfModule mod_rewrite.c>
+DirectoryIndex index.php
+
+RewriteEngine on
+#RewriteBase /
+RewriteCond %{HTTPS} !=on
+RewriteCond %{HTTP_HOST} ^[^.]+\.[^.]+$
+RewriteCond $1 !^(index\.php|images|robots\.txt)
+RewriteRule ^(.*)$ http://www.%{HTTP_HOST}/$1 [L,R=301]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond $1 !^(index\.php|robots\.txt)
+
+RewriteRule ^(.*)$ index.php?/$1 [L]
+</IfModule>
+#php_value upload_max_filesize 40M
+#php_value post_max_size 40M
+#php_value max_execution_time 3600
+#php_value max_input_time 3600
+#php_value session.cookie_httponly 1
+#php_value session.cookie_secure 1
+<IfModule mod_php5.c>
+php_value upload_max_filesize 40M
+php_value post_max_size 40M
+php_value max_execution_time 3600
+php_value max_input_time 3600
+php_value session.cookie_httponly 1
+php_value session.cookie_secure 1
+php_value memory_limit 512M
+</IfModule>
+<filesMatch "\.(htaccess|htpasswd|ini|phps|fla|psd|log|sh)$">
+Order Allow,Deny
+Deny from all
+</filesMatch>
+<Files php.ini>
+Order allow,deny
+Deny from all
+</Files>
