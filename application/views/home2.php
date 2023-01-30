@@ -110,92 +110,76 @@
     </div>
     <!-- Slider End -->
 
-     <!-- section -->
-     <section class="enh_section">
+ 
+        <!-- section -->
+        <section class="enh_section">
             <div class="container">
 
-                <!-- <h2 class="text-center">Services We Do</h2> -->
-                <h2 class="text-center">ABOUT COMPANY</h2>
-                <h3 class="text-center">Experienced agency 15 years of experience</h3>
-                    
-
-                <!-- icon boxes -->
-                <div class="enh_icon_boxes row">
-                    
-                    <!-- animation -->
-                    <div data-animation="animation_blocks" data-bottom="@class:noactive" data--100-bottom="@class:active">
-                     
-
-                        <!-- item -->
-                        <div class="enh_icon_box col-md-4 col-sm-6">
-                            <i class="ti ti-ruler-pencil"></i>
-                            <div class="enh_icon_box_content">
-                                <h4><b>Great</b> Adventure</h4>
-                                Actor of sustainable tourisme in mongiolia
-                            </div>
-                        </div> 
-
-                        <!-- item -->
-                        <div class="enh_icon_box col-md-4 col-sm-6">
-                            <i class="ti ti-panel"></i>
-                            <div class="enh_icon_box_content">
-                                <h4><b>Satifaction</b> Travel</h4>
-                                95% of satisfaction of travellers
-                            </div>
-                        </div> 
-
-                        <!-- item -->
-                        <div class="enh_icon_box col-md-4 col-sm-6">
-                            <i class="ti ti-bag"></i>
-                            <div class="enh_icon_box_content">
-                                <h4><b>One/Multi</b> Group</h4>
-                                Small size group, travel in one time
-                            </div>
-                        </div> 
-
-                        <!-- item -->
-                        <div class="enh_icon_box col-md-4 col-sm-6">
-                            <i class="ti ti-infinite"></i>
-                            <div class="enh_icon_box_content">
-                                <h4><b>Unlimited</b> Spots</h4>
-                                Real local impact, thousands of places
-                            </div>
-                        </div> 
-
-                        <!-- item -->
-                        <div class="enh_icon_box col-md-4 col-sm-6">
-                            <i class="ti ti-headphone"></i>
-                            <div class="enh_icon_box_content">
-                                <h4><b>Support</b> Guide</h4>
-                                24 hours assistance, anytime, anywhere
-                            </div>
-                        </div>
-                           
-                        <!-- item -->
-                        <div class="enh_icon_box col-md-4 col-sm-6">
-                            <i class="ti ti-package"></i>
-                            <div class="enh_icon_box_content">
-                                <h4><b>100%</b> Mongolians</h4>
-                                Owned by mongolians, 
-                            </div>
-                            
-                        </div>
-                    
-                    </div>
-                    <!-- anmation end -->
-
-                </div>
-                <!-- icon boxes end -->
                 
-                <!-- browsers -->
-                <!-- <div class="enh_browsers">
-                    <div id="enh_animation_block" data-bottom="@class:noactive" data--100-bottom="@class:active">
-                        <div class="enh_browser_img enh_browser_mobile enh_image_bck" data-image="images/slider/shutterstock_352265225.jpg"></div>
-                        <div class="enh_browser_img enh_browser_desktop enh_image_bck" data-image="images/slider/corporate_4.jpg"></div>
-                        <div class="enh_browser_img enh_browser_tablet enh_image_bck" data-image="images/slider/corporate_5.jpg"></div>
+                
+                <div class="row">
+                    <div class="col-md-4">
+                        <h2>About Company</h2>
+                        <h3>We Love what we create. Whether it's a new brand identity, advertising campaign or interactive strategy. </h3>
+                        <p><a href="#" class="btn">About US</a></p>
                     </div>
-                </div> -->
-                <!-- browsers end -->
+                    <div class="col-md-7 col-md-offset-1">
+                        
+                        <!-- icon boxes -->
+                        <div class="row">
+                            
+                            <!-- animation -->
+                            <div data-animation="animation_blocks" data-bottom="@class:noactive" data--100-bottom="@class:active">
+                                
+                                <!-- item -->
+                                <div class="enh_icon_box col-md-6 col-sm-6">
+                                    <i class="ti ti-package"></i>
+                                    <div class="enh_icon_box_content">
+                                    <h4><b>100%</b> Mongolians</h4>
+                                Owned by mongolians, 
+                                    </div>
+                                    
+                                </div>
+
+                                <!-- item -->
+                                <div class="enh_icon_box col-md-6 col-sm-6">
+                                    <i class="ti ti-ruler-pencil"></i>
+                                    <div class="enh_icon_box_content">
+                                    <h4><b>Unlimited</b> Spots</h4>
+                                Real local impact, thousands of places
+                                    </div>
+                                </div> 
+
+                                <!-- item -->
+                                <div class="enh_icon_box col-md-6 col-sm-6">
+                                    <i class="ti ti-panel"></i>
+                                    <div class="enh_icon_box_content">
+                                    <h4><b>One/Multi</b> Group</h4>
+                                Small size group, travel in one time
+                                    </div>
+                                </div> 
+
+                                <!-- item -->
+                                <div class="enh_icon_box col-md-6 col-sm-6">
+                                    <i class="ti ti-bag"></i>
+                                    <div class="enh_icon_box_content">
+                                         <h4><b>Great</b> Adventure</h4>
+                                Actor of sustainable tourisme in mongiolia
+                                    </div>
+                                </div> 
+
+                                
+                            
+                            </div>
+                            <!-- anmation end -->
+
+                        </div>
+                        <!-- icon boxes end -->
+                    </div>
+                </div>
+
+       
+                
 
             </div>
             <!-- container end -->
