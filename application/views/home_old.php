@@ -1,364 +1,794 @@
-
-            <!-- News Feed Area Start Here -->
-            
-            <section class="bg-accent add-top-margin">
+<main>
+            <!-- breaking start -->
+            <section class="breaking pt-25 pb-25">
                 <div class="container">
-                    <div class="row no-gutters d-flex align-items-center">
-                        <div class="col-lg-2 col-md-3 col-sm-4 col-6">
-                            <div class="topic-box mt-10 mb-10">Онцлох</div>
+                    <!-- <div class="row">
+                        <div class="col-xl-12">
+                            <div class="breaking__meta mb-30">
+                                <ul>
+                                    <li><i class="fas fa-calendar-alt"></i> <span>Friday, 29 July 2018</span></li>
+                                    <li><i class="fas fa-map-marker-alt"></i> <span>New York</span></li>
+                                    <li><i class="far fa-clock"></i> <span>5 Minute ago</span></li>
+                                </ul>
+                            </div>
                         </div>
-                        <div class="col-lg-10 col-md-9 col-sm-8 col-6">
-                            <div class="feeding-text-dark">
-                                <ol id="sample" class="ticker">
-                                    <?php foreach($ontslohnews as $onts):?>
+                    </div> -->
+                    <div class="row">
+                        <div class="col-12">
+                            <!-- Breaking News Wrapper Start -->
+                            <div class="breaking__wrapper">
+                                <!-- Breaking News Title -->
+                                <h5 class="breaking__title "><?=$w[3]['w_0'];?></h5>
+
+                                <!-- Breaking Newsticker Start -->
+                                <ul class="breaking__ticker-active owl-carousel">
+                                <?php foreach($ontslohnews as $onts):?>
+                                    
                                     <li>
                                         <a href="<?=base_url();?>d/<?=$onts['id'];?>"><?=$onts['title'];?></a>
                                     </li>
                                     <?php endforeach;?>
-                                </ol>
+                                    
+                                </ul>
+                                <!-- Breaking Newsticker Start -->
                             </div>
+                            <!-- Breaking News Wrapper End -->
                         </div>
                     </div>
                 </div>
             </section>
-            <!-- News Feed Area End Here -->
-            <!-- News Slider Area Start Here -->
-            <section class="bg-accent section-space-bottom-less4">
-                <div class="container">
-                    <div class="row tab-space2">
+            <!-- breaking end -->
 
-                        <div class="col-md-8 col-sm-12 mb-4">
-                            <div class="img-overlay-70 img-scale-animate" style="height: 440px;">
-                                <img src="<?=base_url();?><?=$ontslohnews[0]["bigpic"];?>" alt="news" class="img-fluid width-100">
-                                <div class="mask-content-lg">
-                                    <style>.menucolor0::before{border-top: 8px solid <?=$ontslohnews[0]["menu_color"];?>;};</style>
-                                    <style>.menucolor0::after{background-color: <?=$ontslohnews[0]["menu_color"];?>};</style>
-                                    <div class="topic-box-sm color-cinnabar mb-20 menucolor0"><?=$ontslohnews[0]["menu_title"];?></div>
-                                    <div class="post-date-light">
-                                        <ul>
-                                            <!-- <li>
-                                                <span>by</span>
-                                                <a href="single-news-1.html">Adams</a>
-                                            </li> -->
-                                            <li>
-                                                <span>
-                                                    <i class="fa fa-calendar" aria-hidden="true"></i>
-                                                </span><?php echo date("d-m-Y",$ontslohnews[0]["created"]);?></li>
-                                        </ul>
-                                    </div>
-                                    <h1 class="title-medium-light d-none d-sm-block">
-                                        <a href="<?=base_url();?>d/<?=$ontslohnews[0]["id"];?>"><?=$ontslohnews[0]["title"];?></a>
-                                    </h1>
+            <!-- hero-area start -->
+            <section class="hero-area">
+                <div class="container">
+                    <div class="row">
+                        <?php if(count($ontslohnews) > 0) :?>
+                        <div class="col-lg-6 col-md-12">
+                            <div class="hero pos-relative mb-30">
+                                <div class="hero__thumb" data-overlay="dark-gradient">
+                                    <a href="<?=base_url();?>d/<?=$ontslohnews[0]["id"];?>"><img src="<?=base_url();?><?=$ontslohnews[0]["pic"];?>" alt="image"></a>
+                                </div>
+                                <div class="hero__text">
+                                    <span class="post-cat mb-10"><a href="<?=base_url();?>l/<?=$ontslohnews[0]["menu"];?>"><?=$ontslohnews[0]["menu_title"];?></a></span>
+                                    <h3 class="pr-100"><a href="<?=base_url();?>d/<?=$ontslohnews[0]["id"];?>"><?=$ontslohnews[0]["title"];?></a></h3>
                                 </div>
                             </div>
                         </div>
-
-                        <div class="col-md-4 col-sm-12">
-                            <?php if(count($ontslohnews) > 1) :?>
-                            <div class="img-overlay-70 img-scale-animate mb-4" style="height:217px">
-                                <div class="mask-content-sm">
-                                <!-- <style>.color-cinnabar::before{border-top: 8px solid <?=$ontslohnews[1]["menu_color"];?>;};</style>
-                                    <style>.topic-box-sm::after{background-color: <?=$ontslohnews[1]["menu_color"];?>};</style> -->
-                                    <style>.menucolor1::before{border-top: 8px solid <?=$ontslohnews[1]["menu_color"];?>;};</style>
-                                    <style>.menucolor1::after{background-color: <?=$ontslohnews[1]["menu_color"];?>};</style>
-                                    <div class="topic-box-sm color-razzmatazz mb-10 menucolor1"><?=$ontslohnews[1]["menu_title"];?></div>
-                                    <h3 class="title-medium-light">
+                        <?php endif;?>
+                        <?php if(count($ontslohnews) > 1) :?>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="hero pos-relative mb-30">
+                                <div class="hero__thumb" data-overlay="dark-gradient">
+                                    <a href="<?=base_url();?>d/<?=$ontslohnews[1]["id"];?>">
+                                        <img src="<?=base_url();?><?=$ontslohnews[1]["bigpic"];?>" alt="image">
+                                    </a>
+                                </div>
+                                <div class="hero__text hero__text-small">
+                                    <span class="post-cat mb-10">
+                                        <a href="<?=base_url();?>l/<?=$ontslohnews[1]["menu"];?>"><?=$ontslohnews[1]["menu_title"];?></a>
+                                    </span>
+                                    <h3 class="pr-0">
                                         <a href="<?=base_url();?>d/<?=$ontslohnews[1]["id"];?>"><?=$ontslohnews[1]["title"];?></a>
                                     </h3>
                                 </div>
-                                <img src="<?=base_url();?><?=$ontslohnews[1]["bigpic"];?>" alt="news" class="img-fluid width-100">
                             </div>
-                            <?php endif;?>
-                            <?php if(count($ontslohnews) > 2):?>
-                            <div class="img-overlay-70 img-scale-animate mb-4"  style="height:217px">
-                                <div class="mask-content-sm">
-                                <style>.menucolor2::before{border-top: 8px solid <?=$ontslohnews[2]["menu_color"];?>;};</style>
-                                    <style>.menucolor2::after{background-color: <?=$ontslohnews[2]["menu_color"];?>};</style>
-                                    <div class="topic-box-sm color-apple mb-10 menucolor2"><?=$ontslohnews[2]["menu_title"];?></div>
-                                    <h3 class="title-medium-light">
-                                        <a href="<?=base_url();?>d/<?=$ontslohnews[2]["id"];?>"><?=$ontslohnews[2]["title"];?></a>
+                        </div>
+                        <?php endif;?>
+                        <?php if(count($ontslohnews) > 2) :?>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="hero pos-relative mb-30">
+                                <div class="hero__thumb" data-overlay="dark-gradient">
+                                    <a href="<?=base_url();?>d/<?=$ontslohnews[2]["id"];?>">
+                                        <img src="<?=base_url();?><?=$ontslohnews[2]["bigpic"];?>" alt=" image">
+                                    </a>
+                                </div>
+                                <div class="hero__text hero__text-small">
+                                    <span class="post-cat mb-10">
+                                        <a href="<?=base_url();?>l/<?=$ontslohnews[2]["menu"];?>"><?=$ontslohnews[2]["menu_title"];?></a>
+                                    </span>
+                                    <h3 class="pr-0">
+                                        <a href="<?=base_url();?>d/<?=$ontslohnews[1]["id"];?>"><?=$ontslohnews[2]["title"];?></a>
                                     </h3>
                                 </div>
-                                <img src="<?=base_url();?><?=$ontslohnews[2]["bigpic"];?>" alt="news" class="img-fluid width-100">
                             </div>
-                            <?php endif;?>
                         </div>
+                        <?php endif;?>
                     </div>
                 </div>
             </section>
-            
-            <section class="bg-accent section-space-bottom-less30">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-8 col-md-12">
-                            <div class="topic-border color-persian-green mb-30">
-                                <div class="topic-box-lg color-persian-green">Шинэ мэдээ</div>
-                            </div>
-                            <div class="row">
-                                <?php foreach($topnews as $key=>$top):?>
-                                <?php if ($key==0):?>
-                                <div class="col-md-6 col-sm-12 mb-30">
-                                    <div class="img-overlay-70 img-scale-animate">
-                                        <img src="<?=base_url();?><?=$top['pic'];?>" alt="news" class="img-fluid width-100">
-                                    </div>
-                                    <ul class="item-box-light-mix item-shadow-gray" style="height: 137px;overflow: hidden;">
-                                        <li>
-                                            <div class="post-date-dark">
-                                                <ul>
-                                                    <li>
-                                                        <span>
-                                                            <i class="fa fa-calendar" aria-hidden="true"></i>
-                                                        </span><?php echo date('d-m-Y', $top['created']);?></li>
-                                                </ul>
-                                            </div>
-                                            <h3 class="title-medium-dark">
-                                                <a href="<?=base_url();?>d/<?=$top['id'];?>"><?=$top['title'];?></a>
-                                            </h3>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <?php endif;?>
-                                
-                                <?php endforeach;?>
-                                <div class="col-md-6 col-sm-12">
-                                    <?php foreach($topnews as $key=>$top1):?>
-                                    <?php if ($key > 0 && $key < 4):?>
-                                    <div class="media bg-body item-shadow-gray mb-30" style="height:108px;">
-                                        <a class="img-opacity-hover width34-lg width30-md" style="height:108px" href="<?=base_url();?>d/<?=$top1['id'];?>">
-                                            <img style="object-fit: cover;flex-shrink: 0;width: 108px;height: 108px;"src="<?=base_url();?><?=$top1['pic'];?>" alt="news" class="img-fluid">
-                                        </a>
-                                        <div class="media-body media-padding15">
-                                            <div class="post-date-dark">
-                                                <ul>
-                                                    <li>
-                                                        <span>
-                                                            <i class="fa fa-calendar" aria-hidden="true"></i>
-                                                        </span><?php echo date('d-m-Y', $top1['created']);?></li>
-                                                </ul>
-                                            </div>
-                                            <h3 class="title-medium-dark mb-none" style="height: 50px;overflow: hidden;">
-                                                <a href="<?=base_url();?>d/<?=$top1['id'];?>"><?=$top1['title'];?></a>
-                                            </h3>
-                                        </div>
-                                    </div>
+            <!-- hero-area end -->
 
-                                    <?php endif;?>
-                                    <?php endforeach;?>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="ne-sidebar sidebar-break-md col-lg-4 col-md-12">
-                            <div class="sidebar-box">
-                                <div class="topic-border color-cod-gray mb-30">
-                                    <div class="topic-box-lg color-cod-gray">Сошиал холбоос</div>
-                                </div>
-                                <ul class="stay-connected-light overflow-hidden">
-                                    <li class="facebook">
-                                        <a href="https://www.facebook.com/power.mnm/">
-                                            <i class="fa fa-facebook" aria-hidden="true"></i>
-                                            <div class="connection-quantity"><?=$w[0]['w_0'];?></div>
-                                            <p><?=$w[4]['w_0'];?></p>
-                                        </a>
-                                    </li>
-                                    <li class="twitter">
-                                        <a href="https://twitter.com/">
-                                            <i class="fa fa-twitter" aria-hidden="true"></i>
-                                            <div class="connection-quantity"><?=$w[3]['w_0'];?></div>
-                                            <p><?=$w[5]['w_0'];?></p>
-                                        </a>
-                                    </li>
-                                    <li class="linkedin">
-                                        <a href="https://www.linkedin.com/">
-                                            <i class="fa fa-linkedin" aria-hidden="true"></i>
-                                            <div class="connection-quantity"><?=$w[2]['w_0'];?></div>
-                                            <p><?=$w[6]['w_0'];?></p>
-                                        </a>
-                                    </li>
-                                    <li class="ytube">
-                                        <a href="https://www.youtube.com/">
-                                            <i class="fa fa-youtube-play" aria-hidden="true"></i>
-                                            <div class="connection-quantity"><?=$w[1]['w_0'];?></div>
-                                            <p><?=$w[7]['w_0'];?></p>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="sidebar-box">
-                                <div class="ne-banner-layout1 text-center">
-                                    <!-- <a href="#">
-                                        <img src="<?=base_url();?>assets/img/banner/banner11.jpg" alt="ad" class="img-fluid">
-                                    </a> -->
-                                    <?php if (count($banner) > 0):?>
-                                        <?php if (count($banner) > 1):?>
-                                            <?=$banner[1]['content'];?>
-                                        <?php endif;?>
-                                    <?php endif;?>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!-- International Story Area End Here -->
-            <!-- Latest News Area Start Here -->
-            <section class="bg-secondary-accent section-space-less30">
+            <!-- news area -->
+            <section class="news-area pt-30 pb-30">
+                <!-- trendy news -->
                 <div class="container">
                     <div class="row">
                         <div class="col-12">
-                            <div class="topic-border color-scampi mb-30 width-100">
-                                <div class="topic-box-lg color-scampi">Видео </div>
+                            <div class="section-title mb-30">
+                                <h2><?=$w[4]['w_0'];?></h2>
                             </div>
                         </div>
                     </div>
-                    <div class="ne-carousel nav-control-top2 color-scampi" data-loop="true" data-items="4" data-margin="20" data-autoplay="true"
-                        data-autoplay-timeout="5000" data-smart-speed="2000" data-dots="false" data-nav="true" data-nav-speed="false"
-                        data-r-x-small="1" data-r-x-small-nav="true" data-r-x-small-dots="false" data-r-x-medium="2" data-r-x-medium-nav="true"
-                        data-r-x-medium-dots="false" data-r-small="2" data-r-small-nav="true" data-r-small-dots="false" data-r-medium="3"
-                        data-r-medium-nav="true" data-r-medium-dots="false" data-r-Large="4" data-r-Large-nav="true" data-r-Large-dots="false">
-                       <?php foreach($videonews as $key=>$vide):?>
-                        <div class="hover-show-play-btn item-shadow-gray mb-30">
-                            <div class="img-overlay-70">
-                                <img src="<?=base_url();?><?=$vide['pic'];?>" alt="news" class="img-fluid width-100">
-                                <div class="text-center">
-                                    <a class="play-btn" href="<?=base_url();?>d/<?=$vide['id'];?>">
-                                        <img src="<?=base_url();?>assets/img/banner/play.png" alt="play" class="img-fluid">
+                </div>
+                <div class="container">
+                    <div class="row row-10">
+                        <?php if(count($topnews) > 4) :?>
+                        <div class="col-20">
+                            <div class="postbox mb-25">
+                                <div class="postbox__thumb">
+                                    <a href="<?=base_url();?>d/<?=$topnews[2]["id"];?>">
+                                        <img src="<?=base_url();?><?=$topnews[2]["pic"];?>" alt="image">
                                     </a>
                                 </div>
-                            </div>
-                            <div class="box-padding30 bg-body item-shadow-gray">
-                                <div class="post-date-dark">
-                                    <ul>
-                                        <li>
-                                            <span>
-                                                <i class="fa fa-calendar" aria-hidden="true"></i>
-                                            </span><?php echo date('d-m-Y', $vide['created']);?></li>
-                                    </ul>
+                                <div class="postbox__text pt-10">
+                                    <div class="postbox__text-meta pb-10">
+                                        <ul>
+                                            <li>
+                                                <i class="fas fa-calendar-alt"></i>
+                                                <span><?php echo date('yy/m/d', $topnews[2]["created"]);?></span>
+                                            </li>
+                                            <li>
+                                                <i class="fa fa-eye"></i>
+                                                <span><?=$topnews[2]["visited"];?></span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <h4 class="pr-0">
+                                        <a href="<?=base_url();?>d/<?=$topnews[2]["id"];?>"><?=$topnews[2]["title"];?></a>
+                                    </h4>
                                 </div>
-                                <h3 class="title-medium-dark" style="height: 64px;overflow: hidden;">
-                                    <a href="<?=base_url();?>d/<?=$vide['id'];?>"><?=$vide['title'];?></a>
-                                </h3>
+                            </div>
+                            <div class="postbox mb-25">
+                                <div class="postbox__thumb">
+                                    <a href="<?=base_url();?>d/<?=$topnews[3]["id"];?>">
+                                        <img src="<?=base_url();?><?=$topnews[3]["pic"];?>" alt="image">
+                                    </a>
+                                </div>
+                                <div class="postbox__text pt-10">
+                                    <div class="postbox__text-meta pb-10">
+                                        <ul>
+                                            <li>
+                                                <i class="fas fa-calendar-alt"></i>
+                                                <span><?php echo date('yy/m/d', $topnews[3]["created"]);?></span>
+                                            </li>
+                                            <li>
+                                                <i class="fa fa-eye"></i>
+                                                <span><?=$topnews[3]["visited"];?></span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <h4 class="pr-0">
+                                        <a href="<?=base_url();?>d/<?=$topnews[3]["id"];?>"><?=$topnews[3]["title"];?></a>
+                                    </h4>
+                                </div>
+                            </div>
+                            <div class="postbox mb-25">
+                                <div class="postbox__thumb">
+                                    <a href="<?=base_url();?>d/<?=$topnews[4]["id"];?>">
+                                        <img src="<?=base_url();?><?=$topnews[4]["pic"];?>" alt="image">
+                                    </a>
+                                </div>
+                                <div class="postbox__text pt-10">
+                                    <div class="postbox__text-meta pb-10">
+                                        <ul>
+                                            <li>
+                                                <i class="fas fa-calendar-alt"></i>
+                                                <span><?php echo date('yy/m/d', $topnews[4]["created"]);?></span>
+                                            </li>
+                                            <li>
+                                                <i class="fa fa-eye"></i>
+                                                <span><?=$topnews[2]["visited"];?></span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <h4 class="pr-0">
+                                        <a href="<?=base_url();?>d/<?=$topnews[4]["id"];?>"><?=$topnews[4]["title"];?></a>
+                                    </h4>
+                                </div>
+                            </div>
+                        
+                        </div>
+                        <?php endif;?>
+                        <?php if(count($topnews) > 2) :?>
+                        <div class="col-40">
+                            <div class="postbox mb-25">
+                                <div class="postbox__thumb">
+                                    <a href="<?=base_url();?>d/<?=$topnews[0]["id"];?>">
+                                        <img src="<?=base_url();?><?=$topnews[0]["pic"];?>" alt="image">
+                                    </a>
+                                    <span class="post-cat post-absolute">
+                                        <a href="<?=base_url();?>l/<?=$topnews[0]["menu"];?>"><?=$topnews[0]["menu_title"];?></a>
+                                    </span>
+                                </div>
+                                <div class="postbox__text pt-10">
+                                    <div class="postbox__text-meta pb-10">
+                                        <ul>
+                                            <li>
+                                                <i class="fas fa-calendar-alt"></i>
+                                                <span><?php echo date("yy/m/d",$topnews[0]["created"]);?></span>
+                                            </li>
+                                            <li>
+                                                <i class="fa fa-eye"></i>
+                                                <span><?=$topnews[0]["visited"];?></span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <h4 class="title-16 pr-0">
+                                        <a href="<?=base_url();?>d/<?=$topnews[0]["id"];?>"><?=$topnews[0]["title"];?></a>
+                                    </h4>
+                                </div>
+                            </div>
+                            <div class="postbox mb-25">
+                                <div class="postbox__thumb">
+                                    <a href="<?=base_url();?>d/<?=$topnews[1]["id"];?>">
+                                        <img src="<?=base_url();?><?=$topnews[1]["pic"];?>" alt="image">
+                                    </a>
+                                    <span class="post-cat post-absolute">
+                                        <a href="<?=base_url();?>l/<?=$topnews[1]["menu"];?>"><?=$topnews[0]["menu_title"];?></a>
+                                    </span>
+                                </div>
+                                <div class="postbox__text pt-10">
+                                    <div class="postbox__text-meta pb-10">
+                                        <ul>
+                                            <li>
+                                                <i class="fas fa-calendar-alt"></i>
+                                                <span><?php echo date("yy/m/d",$topnews[1]["created"]);?></span>
+                                            </li>
+                                            <li>
+                                                <i class="fa fa-eye"></i>
+                                                <span><?=$topnews[1]["visited"];?></span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <h4 class="title-16 pr-0">
+                                        <a href="<?=base_url();?>d/<?=$topnews[1]["id"];?>"><?=$topnews[1]["title"];?></a>
+                                    </h4>
+                                </div>
                             </div>
                         </div>
-                       <?php endforeach;?>
-                    </div>
-                </div>
-            </section>
-
-        
-            <!-- Video Area End Here -->
-            <!-- More News Area Start Here -->
-            <section class="bg-accent section-space-less30">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-8 col-md-12">
-                            <div class="ne-isotope">
-                                <div class="topic-border color-azure-radiance mb-30">
-                                    <div class="topic-box-lg color-azure-radiance">Бусад </div>
-                                    <!-- <div class="isotope-classes-tab isotop-btn">
-                                        <a href="#" data-filter=".football" class="current">Football</a>
-                                        <a href="#" data-filter=".cricket">Cricket</a>
-                                        <a href="#" data-filter=".tenies">Tenies</a>
-                                        <a href="#" data-filter=".cycling">Cycling</a>
-                                        <a href="#" data-filter=".gadget">Gadget</a>
-                                    </div>
-                                    <div class="more-info-link">
-                                        <a href="post-style-1.html">More
-                                            <i class="fa fa-angle-right" aria-hidden="true"></i>
-                                        </a>
-                                    </div> -->
+                        <?php endif;?>
+                    
+                        <?php if(count($topnews) > 11) :?>
+                        <div class="col-20 d-md-none d-xl-block">
+                            <?php $slicedSmall = array_slice($topnews, 5, 6);?>
+                            <?php foreach($slicedSmall as $small):?>
+                            <div class="post__small mb-30">
+                                <div class="post__small-thumb f-left">
+                                    <a href="<?=base_url();?>d/<?=$small["id"];?>">
+                                        <img src="<?=base_url();?><?=$small["pic"];?>" style="width: 101px;height: 85px;object-fit: cover;"  alt="image">
+                                    </a>
                                 </div>
-                                <div class="featuredContainer">
-                                    <div class="gadget">
-                                        <div class="row">
-                                            <?php foreach($topnews as $key=>$top2):?>
-                                            <?php if ($key>4):?>
-                                            <div class="col-md-12 col-sm-6 col-12 mb-30">
-                                                <div class="media item-shadow-gray bg-body media-none--sm">
-                                                    <div class="position-relative width-36 width43-lg">
-                                                        <a href="<?=base_url();?>d/<?=$top2['id'];?>" class="img-opacity-hover img-overlay-70">
-                                                            <img src="<?=base_url();?><?=$top2['pic'];?>" alt="news" class="img-fluid">
-                                                        </a>
-                                                        <div class="topic-box-top-xs">
-                                                        <style><?php echo ".menucolor".$key."::before{border-top:8px solid ".$top2['menu_color']."}";?></style>
-                                                        <style><?php echo ".menucolor".$key."::after{background-color:".$top2['menu_color']."}";?></style>
-                                                        <!-- <style>.menucolor2::before{border-top: 8px solid <?=$ontslohnews[2]["menu_color"];?>;};</style>
-                                                        <style>.menucolor2::after{background-color: <?=$ontslohnews[2]["menu_color"];?>};</style> -->
-                                                            <div class="topic-box-sm color-cod-gray mb-20 <?php echo "menucolor".$key."";?>"><?=$top2['menu_title'];?></div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="media-body media-padding30 p-mb-none-child">
-                                                        <div class="post-date-dark">
-                                                            <ul>
-                                                              
-                                                                <li>
-                                                                    <span>
-                                                                        <i class="fa fa-calendar" aria-hidden="true"></i>
-                                                                    </span><?php echo date('d-m-Y',$top2['created']);?></li>
-                                                            </ul>
-                                                        </div>
-                                                        <h3 class="title-semibold-dark size-lg mb-15">
-                                                            <a href="<?=base_url();?>d/<?=$top2['id'];?>"><?=$top2['title'];?></a>
-                                                        </h3>
-                                                        <p><?=$top2['description'];?>
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <?php endif;?>
-                                            <?php endforeach;?>
-                                        </div>
+                                <div class="post__small-text fix pl-10">
+                                    <span class="sm-cat">
+                                        <a href="<?=base_url();?>l/<?=$small["menu"];?>"><?=$small["menu_title"];?></a>
+                                    </span>
+                                    <h4 class="title-13 pr-0" style="height: 55px;overflow: hidden;">
+                                        <a href="<?=base_url();?>d/<?=$small["id"];?>"><?=$small["title"];?></a>
+                                    </h4>
+                                    <div class="post__small-text-meta">
+                                        <ul>
+                                            <li>
+                                                <i class="fas fa-calendar-alt"></i>
+                                                <span><?php echo date('yy/m/d',$small["created"]);?></span>
+                                            </li>
+                                        </ul>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="ne-sidebar sidebar-break-md col-lg-4 col-md-12">
-                            <div class="sidebar-box">
-                                <div class="topic-border color-cod-gray mb-30">
-                                    <div class="topic-box-lg color-cod-gray">Хамгийн их уншсан</div>
-                                </div>
-                                <div class="d-inline-block">
-                                    <?php foreach($mostread as $most):?>
-                                    <div class="media mb30-list bg-body" style="height: 108px;">
-                                        <a class="img-opacity-hover" href="<?=base_url();?>d/<?=$most['id'];?>">
-                                            <img style="object-fit: cover;flex-shrink: 0;width: 108px;height: 108px;" src="<?=base_url();?><?=$most['pic'];?>" alt="news" class="img-fluid">
-                                        </a>
-                                        <div class="media-body media-padding15">
-                                            <div class="post-date-dark">
-                                                <ul>
-                                                    <li>
-                                                        <span>
-                                                            <i class="fa fa-calendar" aria-hidden="true"></i>
-                                                        </span><?php echo date('d-m-Y',$most['created']);?></li>
-                                                </ul>
-                                            </div>
-                                            <h3 class="title-medium-dark mb-none" style="height: 68px;overflow: hidden;">
-                                                <a href="<?=base_url();?>d/<?=$most['id']?>"><?=$most['title'];?></a>
-                                            </h3>
-                                        </div>
-                                    </div>
-                                    <?php endforeach;?>
-                                </div>
-                            </div>
-                            <!-- <div class="sidebar-box">
-                                <div class="topic-border color-cod-gray mb-30">
-                                    <div class="topic-box-lg color-cod-gray">Newsletter</div>
-                                </div>
-                                <div class="newsletter-area bg-primary">
-                                    <h2 class="title-medium-light size-xl line-height-custom">Subscribe to our mailing list to get the new updates!</h2>
-                                    <img src="<?=base_url();?>assets/img/banner/newsletter.png" alt="newsletter" class="img-fluid mb-10">
-                                    <p>Subscribe our newsletter to stay updated</p>
-                                    <div class="input-group stylish-input-group">
-                                        <input type="text" placeholder="Enter your mail" class="form-control">
-                                        <span class="input-group-addon">
-                                            <button type="submit">
-                                                <i class="fa fa-angle-right" aria-hidden="true"></i>
-                                            </button>
-                                        </span>
-                                    </div>
-                                </div>
+                            <?php endforeach;?>
+                          
+                            <!-- <div class="post-btn mb-30">
+                               <a href="#" class="btn btn-border">view more</a>
                             </div> -->
                         </div>
+                        <?php endif;?>
+                   
+                        <?php if(count($topnews) > 13) :?>
+                        <div class="col-20 ">
+                            <?php $slicedLast = array_slice($topnews, 11, 3);?>
+                            <?php foreach($slicedLast as $last):?>
+                            <div class="postbox mb-25">
+                                <div class="postbox__thumb">
+                                    <a href="<?=base_url();?>d/<?=$last["id"];?>">
+                                        <img src="<?=base_url();?><?=$last["pic"];?>" alt="image">
+                                    </a>
+                                </div>
+                                <div class="postbox__text pt-10">
+                                    <div class="postbox__text-meta pb-10">
+                                        <ul>
+                                            <li>
+                                                <i class="fas fa-calendar-alt"></i>
+                                                <span><?php echo date('yy/m/d', $last["created"]);?></span>
+                                            </li>
+                                            <li>
+                                                <i class="fa fa-eye"></i>
+                                                <span><?=$last["visited"];?></span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <h4 class="pr-0">
+                                        <a href="<?=base_url();?>d/<?=$last["id"];?>"><?=$last["title"];?></a>
+                                    </h4>
+                                </div>
+                            </div>
+                            <?php endforeach;?>
+                        </div>
+                        <?php endif;?>
+                    </div>
+                </div>
+                <!-- trendy news end -->
+            </section>
+            <!-- news area end -->
+
+            <!-- video news -->
+            <section class="cat-area pb-30">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="section-title mb-30">
+                                <h2><?=$w[5]['w_0'];?></h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <?php foreach($videonews as $video):?>
+                        <div class="col-xl-6 col-lg-6 col-md-6">
+                            <div class="postbox mb-25">
+                                <div class="postbox__thumb" data-overlay="dark" data-opacity="2">
+                                    <a href="<?=base_url();?>d/<?=$video['id'];?>">
+                                        <img src="<?=base_url();?><?=$video['pic'];?>" alt="image">
+                                    </a>
+                                    <div class="video-play">
+                                        <a href="<?=base_url();?>d/<?=$video['id'];?>" ><i class="fas fa-play"></i></a>
+                                    </div>
+                                </div>
+                                <div class="postbox__text pt-20">
+                                    <h4 class="title-22 pr-0">
+                                        <a href="<?=base_url();?>d/<?=$video['id'];?>"><?=$video['title'];?></a>
+                                    </h4>
+                                    <div class="postbox__text-meta pb-10">
+                                        <ul>
+                                            <li>
+                                                <i class="fas fa-calendar-alt"></i>
+                                                <span><?php echo date('yy/m/d',$video['created']);?></span>
+                                            </li>
+                                            <li>
+                                                <i class="fa fa-eye"></i>
+                                                <span><?=$video['visited'];?></span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <?php endforeach;?>
                     </div>
                 </div>
             </section>
+            <!-- video news end -->
 
+            <!-- cat news -->
+            <!-- <section class="cat-area pb-30">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-4 col-lg-4 col-md-6">
+                            <div class="section-title mb-30">
+                                <h2>Science</h2>
+                            </div>
+
+                            <div class="postbox mb-25">
+                                <div class="postbox__thumb">
+                                    <a href="#">
+                                        <img src="assets/img/cat1.jpg" alt="hero image">
+                                    </a>
+                                </div>
+                                <div class="postbox__text pt-20">
+                                    <h4 class="title-18 pr-0">
+                                        <a href="#">Mustify Winner Is Rtired Because of Weaths Bads Ankle World Wide.</a>
+                                    </h4>
+                                    <div class="postbox__text-meta pb-10">
+                                        <ul>
+                                            <li>
+                                                <i class="fas fa-calendar-alt"></i>
+                                                <span>01 Sep 2018</span>
+                                            </li>
+                                            <li>
+                                                <i class="far fa-comment"></i>
+                                                <span>(03)</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="cat-sm-post">
+                                <div class="post__small mb-30">
+                                    <div class="post__small-thumb f-left">
+                                        <a href="#">
+                                            <img src="assets/img/xs-12.jpg" alt="hero image">
+                                        </a>
+                                    </div>
+                                    <div class="post__small-text fix pl-10">
+                                        <h4 class="title-16 pr-0 mt-0">
+                                            <a href="#">Hobots or Job Training: Mnutuers Grapple With How to Improve.</a>
+                                        </h4>
+                                        <div class="post__small-text-meta">
+                                            <ul>
+                                                <li>
+                                                    <i class="fas fa-calendar-alt"></i>
+                                                    <span>01 Sep 2018</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="post__small mb-30">
+                                    <div class="post__small-thumb f-left">
+                                        <a href="#">
+                                            <img src="assets/img/xs-11.jpg" alt="hero image">
+                                        </a>
+                                    </div>
+                                    <div class="post__small-text fix pl-10">
+                                        <h4 class="title-16 pr-0 mt-0">
+                                            <a href="#">Robots or Job Training: Manutues Grapple With How to Improve..</a>
+                                        </h4>
+                                        <div class="post__small-text-meta">
+                                            <ul>
+                                                <li>
+                                                    <i class="fas fa-calendar-alt"></i>
+                                                    <span>01 Sep 2018</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-lg-4 col-md-6">
+                            <div class="section-title mb-30">
+                                <h2>travel</h2>
+                            </div>
+
+                            <div class="postbox mb-25">
+                                <div class="postbox__thumb">
+                                    <a href="#">
+                                        <img src="assets/img/cat2.jpg" alt="hero image">
+                                    </a>
+                                </div>
+                                <div class="postbox__text pt-20">
+                                    <h4 class="title-18 pr-0">
+                                        <a href="#">Robots or Job Training: Manutues Grapple With How to Improve.</a>
+                                    </h4>
+                                    <div class="postbox__text-meta pb-10">
+                                        <ul>
+                                            <li>
+                                                <i class="fas fa-calendar-alt"></i>
+                                                <span>01 Sep 2018</span>
+                                            </li>
+                                            <li>
+                                                <i class="far fa-comment"></i>
+                                                <span>(03)</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="cat-sm-post">
+                                <div class="post__small mb-30">
+                                    <div class="post__small-thumb f-left">
+                                        <a href="#">
+                                            <img src="assets/img/xs-7.jpg" alt="hero image">
+                                        </a>
+                                    </div>
+                                    <div class="post__small-text fix pl-10">
+                                        <h4 class="title-16 pr-0 mt-0">
+                                            <a href="#">Canadian Shoppers Pay When Visa and MasterCard.</a>
+                                        </h4>
+                                        <div class="post__small-text-meta">
+                                            <ul>
+                                                <li>
+                                                    <i class="fas fa-calendar-alt"></i>
+                                                    <span>01 Sep 2018</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="post__small mb-30">
+                                    <div class="post__small-thumb f-left">
+                                        <a href="#">
+                                            <img src="assets/img/xs-8.jpg" alt="hero image">
+                                        </a>
+                                    </div>
+                                    <div class="post__small-text fix pl-10">
+                                        <h4 class="title-16 pr-0 mt-0">
+                                            <a href="#">Who is next football Super Hero. Check the future star</a>
+                                        </h4>
+                                        <div class="post__small-text-meta">
+                                            <ul>
+                                                <li>
+                                                    <i class="fas fa-calendar-alt"></i>
+                                                    <span>01 Sep 2018</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-lg-4 col-md-6 d-md-none d-lg-block">
+                            <div class="section-title mb-30">
+                                <h2>lifestyle</h2>
+                            </div>
+
+                            <div class="postbox mb-25">
+                                <div class="postbox__thumb">
+                                    <a href="#">
+                                        <img src="assets/img/cat3.jpg" alt="hero image">
+                                    </a>
+                                </div>
+                                <div class="postbox__text pt-20">
+                                    <h4 class="title-18 pr-0">
+                                        <a href="#">Denying passports to Americans along the border throwing their citizens.</a>
+                                    </h4>
+                                    <div class="postbox__text-meta pb-10">
+                                        <ul>
+                                            <li>
+                                                <i class="fas fa-calendar-alt"></i>
+                                                <span>01 Sep 2018</span>
+                                            </li>
+                                            <li>
+                                                <i class="far fa-comment"></i>
+                                                <span>(03)</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="cat-sm-post">
+                                <div class="post__small mb-30">
+                                    <div class="post__small-thumb f-left">
+                                        <a href="#">
+                                            <img src="assets/img/xs-10.jpg" alt="hero image">
+                                        </a>
+                                    </div>
+                                    <div class="post__small-text fix pl-10">
+                                        <h4 class="title-16 pr-0 mt-0">
+                                            <a href="#">Hobots or Job Training: Mnutuers Grapple With How to Improve.</a>
+                                        </h4>
+                                        <div class="post__small-text-meta">
+                                            <ul>
+                                                <li>
+                                                    <i class="fas fa-calendar-alt"></i>
+                                                    <span>01 Sep 2018</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="post__small mb-30">
+                                    <div class="post__small-thumb f-left">
+                                        <a href="#">
+                                            <img src="assets/img/xs-9.jpg" alt="hero image">
+                                        </a>
+                                    </div>
+                                    <div class="post__small-text fix pl-10">
+                                        <h4 class="title-16 pr-0 mt-0">
+                                            <a href="#">Robots or Job Training: Manutues Grapple With How to Improve..</a>
+                                        </h4>
+                                        <div class="post__small-text-meta">
+                                            <ul>
+                                                <li>
+                                                    <i class="fas fa-calendar-alt"></i>
+                                                    <span>01 Sep 2018</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section> -->
+            <!-- cat news end -->
+
+            <!-- add-area start -->
+            <!-- <section class="add-area pb-30">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-4 col-lg-4 col-md-6 d-md-none d-xl-block">
+                            <div class="section-title mb-30">
+                                <h2>advertisement</h2>
+                            </div>
+                            <div class="add-banner mb-30">
+                                <a href="#"><img src="assets/img/add.jpg" alt=""></a>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-lg-8 col-md-6">
+                            <div class="section-title mb-30">
+                                <h2>Magazine</h2>
+                            </div>
+                            <div class="cat-sm-post mb-30">
+                                <div class="post__small mb-25">
+                                    <div class="post__small-thumb f-left">
+                                        <a href="#">
+                                            <img src="assets/img/xs-7.jpg" alt="hero image">
+                                        </a>
+                                    </div>
+                                    <div class="post__small-text fix pl-10">
+                                        <h4 class="title-16 pr-0 mt-0">
+                                            <a href="#">Robots or Job Training: Manuturers Grapple With How to Improve Their Economic Fortunes</a>
+                                        </h4>
+                                        <div class="post__small-text-meta">
+                                            <ul>
+                                                <li>
+                                                    <i class="fas fa-calendar-alt"></i>
+                                                    <span>01 Sep 2018</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="post__small mb-25">
+                                    <div class="post__small-text fix">
+                                        <h4 class="title-16 pr-0 mt-0">
+                                            <a href="#">Japanese Medical School Accused of With How to Improve Their Economic Fortunes Riggmisions to Keep Women Out world.</a>
+                                        </h4>
+                                        <div class="post__small-text-meta">
+                                            <ul>
+                                                <li>
+                                                    <i class="fas fa-calendar-alt"></i>
+                                                    <span>01 Sep 2018</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="post__small mb-25">
+                                    <div class="post__small-text fix">
+                                        <h4 class="title-16 pr-0 mt-0">
+                                            <a href="#">Leslie Moonves Speaks on CBS Earnings Cabunsot About Harassment Allegations</a>
+                                        </h4>
+                                        <div class="post__small-text-meta">
+                                            <ul>
+                                                <li>
+                                                    <i class="fas fa-calendar-alt"></i>
+                                                    <span>01 Sep 2018</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-lg-4 col-md-6">
+                            <div class="section-title mb-30">
+                                <h2>Picture</h2>
+                            </div>
+                            <div class="cat-sm-post">
+                                <div class="post__small mb-25">
+                                    <div class="post__small-thumb gallery-active owl-carousel">
+                                        <a href="#">
+                                            <img src="assets/img/gallery1.jpg" alt="hero image">
+                                        </a>
+                                        <a href="#">
+                                            <img src="assets/img/gallery1.jpg" alt="hero image">
+                                        </a>
+                                        <a href="#">
+                                            <img src="assets/img/gallery1.jpg" alt="hero image">
+                                        </a>
+                                    </div>
+                                    <div class="post__small-text pt-15">
+                                        <h4 class="title-16 pr-0 mt-0">
+                                            <a href="#">Robots or Job Training: Manuturers Grapple With How to Improve Their Economic Fortunes</a>
+                                        </h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section> -->
+            <!-- add-area end -->
+
+            <!-- latest news -->
+            <section class="latest-area pb-30">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="section-title mb-30">
+                                <h2><?=$w[6]['w_0'];?></h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                  
+                        <?php $busad2 = array_slice($busad, 0, 2);?>    
+                        <div class="col-xl-7 col-lg-12">
+                            <?php foreach($busad2 as $b2):?>
+                            <div class="row">
+                                <div class="col-xl-6 col-lg-4 col-md-6">
+                                    <div class="postbox mb-30">
+                                        <div class="postbox__thumb">
+                                            <a href="#">
+                                                <img src="<?=base_url();?><?=$b2['pic'];?>" alt="image">
+                                            </a>
+                                            <!-- <span class="post-cat post-absolute">
+                                                <a href="<?=base_url();?>d/<?=$b2['id'];?>"><?=$w[6]['w_0'];?></a>
+                                            </span> -->
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xl-6 col-lg-8 col-md-6">
+                                    <div class="postbox__text mb-30">
+                                        <h4 class="title-16 pr-0">
+                                            <a href="<?=base_url();?>d/<?=$b2['id'];?>"><?=$b2['title'];?></a>
+                                        </h4>
+                                        <div class="postbox__text-meta pb-10">
+                                            <ul>
+                                                <li>
+                                                    <i class="fas fa-calendar-alt"></i>
+                                                    <span><?php echo date('yy/m/d', $b2['created']);?></span>
+                                                </li>
+                                                <li>
+                                                    <i class="fa fa-eye"></i>
+                                                    <span><?=$b2['visited'];?></span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="desc-text mb-20">
+                                            <p><?=$b2['description'];?></p>
+                                        </div>
+                                        <a href="<?=base_url();?>d/<?=$b2['id'];?>" class="btn btn-soft">Унших</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <?php endforeach;?>
+                        </div>
+                                
+                        <div class="col-xl-5">
+                            <div class="postbox mb-30">
+                                <div class="postbox__thumb">
+                                    <a href="<?=base_url();?><?=$busad[count($busad)-1]['id'];?>">
+                                        <img class="img-100" src="<?=base_url();?><?=$busad[count($busad)-1]['pic'];?>" alt="hero image">
+                                    </a>
+                                    <!-- <span class="post-cat post-absolute">
+                                        <a href="#">politic</a>
+                                    </span> -->
+                                </div>
+                                <div class="postbox__text pt-25">
+                                    <h4 class="title-16 pr-0">
+                                        <a href="<?=base_url();?>d/<?=$busad[count($busad)-1]['id'];?>"><?=$busad[count($busad)-1]['title'];?></a>
+                                    </h4>
+                                    <div class="postbox__text-meta pb-10">
+                                        <ul>
+                                            <li>
+                                                <i class="fas fa-calendar-alt"></i>
+                                                <span><?php echo date('yy/m/d', $busad[count($busad)-1]['created']);?></span>
+                                            </li>
+                                            <li>
+                                                <i class="fa fa-eye"></i>
+                                                <span><?=$busad[count($busad)-1]['visited'];?></span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="desc-text mb-20">
+                                        <p><?=$busad[count($busad)-1]['description'];?> </p>
+                                    </div>
+                                    <a href="<?=base_url();?>d/<?=$busad[count($busad)-1]['id'];?>" class="btn btn-soft">Унших</a>
+                                </div>
+                            </div>
+                        </div>
+                                
+                    </div>
+                </div>
+            </section>
+            <!-- latest news end --
+
+        </main>

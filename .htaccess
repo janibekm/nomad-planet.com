@@ -28,6 +28,11 @@ php_value session.cookie_httponly 1
 php_value session.cookie_secure 1
 php_value memory_limit 512M
 </IfModule>
+<IfModule mod_headers.c>
+    <FilesMatch "\.(ttf|ttc|otf|eot|woff|font.css|css|woff2)$">
+      Header set Access-Control-Allow-Origin "*"
+    </FilesMatch>
+  </IfModule>
 <filesMatch "\.(htaccess|htpasswd|ini|phps|fla|psd|log|sh)$">
 Order Allow,Deny
 Deny from all

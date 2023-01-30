@@ -24,7 +24,42 @@ class Main extends CI_Controller {
 		$data['busad'] = $this->main_model->getnews_by_menu(15, 3);
 		$this->main_lib->template('home',$data);
 	}
-
+	function home(){
+		//$this->output->cache($this->config->item('cache'));
+		$data = array();
+		$data['selected'] = 0;
+		$data['w'] = $this->main_model->words();
+		$data['banner'] = $this->main_model->banners();
+ 		$data['menus'] = $this->main_model->getmenus();
+		$data['ontslohnews'] = $this->main_model->getontsloh(3);
+		$arrnotin = array();
+		foreach($data['ontslohnews'] as $notin){
+			array_push($arrnotin, $notin['id']);
+		}
+		$data['topnews'] = $this->main_model->gettopnews($arrnotin);
+		$data['videonews'] = $this->main_model->getnews_by_menu(12, 2);
+		// $data['mostread'] = $this->main_model->mostread();
+		$data['busad'] = $this->main_model->getnews_by_menu(15, 3);
+		$this->main_lib->template('home',$data);
+	}
+	function home2(){
+		//$this->output->cache($this->config->item('cache'));
+		$data = array();
+		$data['selected'] = 0;
+		$data['w'] = $this->main_model->words();
+		$data['banner'] = $this->main_model->banners();
+ 		$data['menus'] = $this->main_model->getmenus();
+		$data['ontslohnews'] = $this->main_model->getontsloh(3);
+		$arrnotin = array();
+		foreach($data['ontslohnews'] as $notin){
+			array_push($arrnotin, $notin['id']);
+		}
+		$data['topnews'] = $this->main_model->gettopnews($arrnotin);
+		$data['videonews'] = $this->main_model->getnews_by_menu(12, 2);
+		// $data['mostread'] = $this->main_model->mostread();
+		$data['busad'] = $this->main_model->getnews_by_menu(15, 3);
+		$this->main_lib->template('home2',$data);
+	}
 	function l($id = 0,$start=0){
 		//$this->output->cache($this->config->item('cache')); 
 		$data = array();

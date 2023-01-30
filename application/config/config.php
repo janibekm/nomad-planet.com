@@ -17,7 +17,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | environments.
 |
 */
-$config['base_url'] = 'http://localhost:8080/yam.mn/';
+$config['base_url'] = 'http://localhost/nomad-planet.com/';
 
 /*
 |--------------------------------------------------------------------------

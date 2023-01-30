@@ -5,9 +5,9 @@ class Main_lib {
 	function template($content='home',$data=array())
 	{
 		$CI =& get_instance();
-		$CI->load->view('header',$data);
+		// $CI->load->view('header',$data);
 		$CI->load->view(''.$content,$data);
-		$CI->load->view('footer',$data);
+		// $CI->load->view('footer',$data);
 	}
 	
 	public function get_settings($id,$total,$limit)
