@@ -441,7 +441,7 @@
         <!-- section end -->
    
         <!-- Statistics -->
-        <section class="enh_section enh_section_sml_padding enh_image_bck text-center enh_wht_txt enh_fixed" data-stellar-background-ratio="0.2" data-image="<?=base_url();?>assets/images/travel/shutterstock_145257634.jpg">
+        <section class="enh_section enh_section_sml_padding enh_image_bck text-center enh_wht_txt enh_fixed" data-stellar-background-ratio="0.2" data-image="<?=base_url();?>assets/images/nuur-mori.jpg">
             
             <!-- Over -->
             <div class="enh_over" data-color="#292929" data-0="opacity:0;" data--400-bottom="opacity:0.8;"></div>
