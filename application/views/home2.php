@@ -136,7 +136,7 @@
                                     <i class="ti ti-package"></i>
                                     <div class="enh_icon_box_content">
                                     <h4><b>100%</b> Mongolians</h4>
-                                Owned by mongolians, 
+                                        Owned by mongolians, 
                                     </div>
                                     
                                 </div>
@@ -177,10 +177,6 @@
                         <!-- icon boxes end -->
                     </div>
                 </div>
-
-       
-                
-
             </div>
             <!-- container end -->
 

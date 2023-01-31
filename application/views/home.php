@@ -336,24 +336,15 @@
                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa similique porro officiis nobis nulla quidem nihil iste veniam ut sit, maiores.</p>
                                 <span class="btn">Read More</span>
                             </a>
-                        </div> 
-
-
-                                    
+                        </div>          
                     </div>
                     <!-- animation end -->
-
                 </div>
                 <!-- boxes end -->
-
-                    
             </div>
             <!-- container end -->
         </section>
         <!-- section end -->
-        
-
-
     <style>
         .tst400{
             height: 280px;

@@ -89,20 +89,28 @@
         </header>
         <ul class="nav sidebar-menu">
 		  <li class="active">
-            <a href="<?=base_url();?>admin">
-              <span class="glyphicon glyphicon-home"></span>
-              <span class="sidebar-title">Эхлэл</span>
-            </a>
-          </li>
-		  <li class="sidebar-label pt20">Мэдээ</li>
+          <a href="<?=base_url();?>admin">
+            <span class="glyphicon glyphicon-home"></span>
+            <span class="sidebar-title">Эхлэл</span>
+          </a>
+        </li>
+      <li class="sidebar-label pt20">Language</li>
 		  <li>
-			<a href="<?=base_url();?>admin/post_add">
-				<span class="glyphicon glyphicon-pencil"></span>
-				<span class="sidebar-title">Мэдээ нэмэх</span>
+			<a href="<?=base_url();?>admin/lang_list">
+				<span class="glyphicon glyphicon-text-size"></span>
+				<span class="sidebar-title">Хэл</span>
 			</a>
 		  </li>
+		  <li class="sidebar-label pt20">Мэдээ</li>
+		 
 		  <li>
-			<a href="<?=base_url();?>admin/post_list">
+        <a href="<?=base_url();?>admin/post_add">
+          <span class="glyphicon glyphicon-pencil"></span>
+          <span class="sidebar-title">Мэдээ нэмэх</span>
+        </a>
+		  </li>
+		  <li>
+			  <a href="<?=base_url();?>admin/post_list">
 				<span class="glyphicon glyphicon-duplicate"></span>
 				<span class="sidebar-title">Мэдээний жагсаалт</span>
 			</a>
@@ -131,6 +139,76 @@
               </li>
             </ul>
           </li>
+          <li>
+            <a class="accordion-toggle" href="#">
+              <span class="fa fa-bars"></span>
+              <span class="sidebar-title">Манай баг</span>
+              <span class="caret"></span>
+            </a>
+            <ul class="nav sub-nav">
+				<li>
+					<a href="<?=base_url();?>admin/project_add">
+					  <span class="glyphicon glyphicon-plus-sign"></span>Нэмэх </a>
+				</li>
+				<li>
+					<a href="<?=base_url();?>admin/project_list">
+					  <span class="glyphicon glyphicon-list"></span>Жагсаалт</a>
+				</li>
+            </ul>
+          </li>
+          <li class="sidebar-label pt20">Слайдер</li>
+		  <li>
+			<a href="<?=base_url();?>admin/slider_add">
+				<span class="fa fa-picture-o"></span>
+				<span class="sidebar-title">Слайдер нэмэх</span>
+			</a>
+		  </li>
+		  <li>
+			<a href="<?=base_url();?>admin/slider_list">
+				<span class="fa fa-desktop"></span>
+				<span class="sidebar-title">Слайдерийн жагсаалт</span>
+			</a>
+		  </li>
+      <li class="sidebar-label pt20">Хэрэглэгчдийн сэтгэгдэл</li>
+		  <li>
+			<a href="<?=base_url();?>admin/testiminol_add">
+				<span class="fa fa-comment"></span>
+				<span class="sidebar-title">Сэтгэгдэл нэмэх</span>
+			</a>
+		  </li>
+		  <li>
+			<a href="<?=base_url();?>admin/testiminol_list">
+				<span class="fa fa-comments"></span>
+				<span class="sidebar-title">Сэтгэгдлийн жагсаалт</span>
+			</a>
+		  </li>
+      <li class="sidebar-label pt20">Цэс</li>
+		  <li>
+			<a href="<?=base_url();?>admin/menu_add">
+				<span class="glyphicon glyphicon-plus-sign"></span>
+				<span class="sidebar-title">Цэс нэмэх</span>
+			</a>
+		  </li>
+		  <li>
+			<a href="<?=base_url();?>admin/menu_list">
+				<span class="fa fa-tags"></span>
+				<span class="sidebar-title">Цэсний жагсаалт</span>
+			</a>
+		  </li>
+		  <li class="sidebar-label pt20">Үйл явдал</li>
+		  <li>
+			<a href="<?=base_url();?>admin/event_add">
+				<span class="glyphicon glyphicon-pencil"></span>
+				<span class="sidebar-title">Үйл явдал нэмэх</span>
+			</a>
+		  </li>
+		  <li>
+			<a href="<?=base_url();?>admin/event_list">
+				<span class="glyphicon glyphicon-duplicate"></span>
+				<span class="sidebar-title">Үйл явдал жагсаалт</span>
+			</a>
+		  </li>
+		  <li> 
 		  <!-- <li class="sidebar-label pt20">Slider</li>
 		  <li>
 			<a href="<?=base_url();?>admin/slider_add">
@@ -145,20 +223,7 @@
 			</a>
 		  </li>
 		  <li>
-		  <li class="sidebar-label pt20">Үйл явдал</li>
-		  <li>
-			<a href="<?=base_url();?>admin/event_add">
-				<span class="glyphicon glyphicon-pencil"></span>
-				<span class="sidebar-title">Үйл явдал нэмэх</span>
-			</a>
-		  </li>
-		  <li>
-			<a href="<?=base_url();?>admin/event_list">
-				<span class="glyphicon glyphicon-duplicate"></span>
-				<span class="sidebar-title">Үйл явдал жагсаалт</span>
-			</a>
-		  </li>
-		  <li> -->
+		 -->
 		  
 		   <!--<li class="sidebar-label pt20">Project</li>
 		  <li>
