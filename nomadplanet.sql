@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Sep 08, 2022 at 05:49 AM
+-- Generation Time: Feb 01, 2023 at 10:04 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `yammn`
+-- Database: `nomadplanet`
 --
 
 -- --------------------------------------------------------
@@ -237,7 +237,11 @@ INSERT INTO `actions` (`id`, `user_id`, `user_name`, `icon`, `action`, `link`, `
 (255, 1, 'janibekm', 'fa fa-plus', 'Мэдээ засагдлаа', 'http://localhost:8080/yam.mn/admin/post_edit/', '2022-09-08 04:53:39'),
 (256, 1, 'janibekm', 'fa fa-plus', 'Мэдээ засагдлаа', 'http://localhost:8080/yam.mn/admin/post_edit/', '2022-09-08 04:53:59'),
 (257, 1, 'janibekm', 'fa fa-plus', 'Сурталчилгаа засагдлаа', 'http://localhost:8080/yam.mn/admin/banner_edit/', '2022-09-08 05:28:09'),
-(258, 1, 'janibekm', 'fa fa-plus', 'Сурталчилгаа засагдлаа', 'http://localhost:8080/yam.mn/admin/banner_edit/', '2022-09-08 05:28:36');
+(258, 1, 'janibekm', 'fa fa-plus', 'Сурталчилгаа засагдлаа', 'http://localhost:8080/yam.mn/admin/banner_edit/', '2022-09-08 05:28:36'),
+(259, 1, 'janibekm', 'fa fa-pencil', 'Мэдээний ангилал засагдлаа', 'http://localhost/nomad-planet.com/admin/lang_edit/1', '2023-02-01 04:06:08'),
+(260, 1, 'janibekm', 'fa fa-pencil', 'Мэдээний ангилал засагдлаа', 'http://localhost/nomad-planet.com/admin/lang_edit/2', '2023-02-01 04:06:55'),
+(261, 1, 'janibekm', 'fa fa-pencil', 'Мэдээний ангилал засагдлаа', 'http://localhost/nomad-planet.com/admin/lang_edit/2', '2023-02-01 04:07:55'),
+(262, 1, 'janibekm', 'fa fa-pencil', 'Мэдээний ангилал засагдлаа', 'http://localhost/nomad-planet.com/admin/menu_edit/7', '2023-02-01 08:42:35');
 
 -- --------------------------------------------------------
 
@@ -324,6 +328,38 @@ INSERT INTO `groups` (`id`, `name`, `description`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `lang`
+--
+
+CREATE TABLE `lang` (
+  `id` int(255) NOT NULL,
+  `subid` int(255) NOT NULL,
+  `order` int(255) NOT NULL,
+  `title_0` varchar(255) NOT NULL,
+  `title_1` varchar(255) NOT NULL,
+  `title_2` varchar(255) DEFAULT NULL,
+  `title_3` varchar(255) DEFAULT NULL,
+  `title_4` varchar(255) DEFAULT NULL,
+  `description` text NOT NULL,
+  `pic` varchar(255) NOT NULL,
+  `url` varchar(255) NOT NULL,
+  `target` varchar(255) NOT NULL,
+  `created` int(255) NOT NULL,
+  `updated` int(11) NOT NULL,
+  `visible` int(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `lang`
+--
+
+INSERT INTO `lang` (`id`, `subid`, `order`, `title_0`, `title_1`, `title_2`, `title_3`, `title_4`, `description`, `pic`, `url`, `target`, `created`, `updated`, `visible`) VALUES
+(1, 0, 0, 'English', 'Englishe', NULL, NULL, NULL, 'eng', 'img/lang/mn.png', '', '', 1461836385, 1675220768, 1),
+(2, 0, 1, 'French', 'Fransuz', NULL, NULL, NULL, 'fr', 'img/lang/eng.png', '', '', 1461836385, 1675220875, 0);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `login_attempts`
 --
 
@@ -344,27 +380,29 @@ CREATE TABLE `menu` (
   `id` int(255) NOT NULL,
   `subid` int(255) NOT NULL,
   `order` int(255) NOT NULL,
-  `title` varchar(255) NOT NULL,
-  `description` text NOT NULL,
+  `title_0` varchar(255) NOT NULL,
+  `description_0` text NOT NULL,
   `pic` varchar(255) NOT NULL,
   `created` int(255) UNSIGNED NOT NULL,
   `updated` int(11) NOT NULL,
   `visible` int(1) NOT NULL,
-  `color` text DEFAULT NULL
+  `color` text DEFAULT NULL,
+  `title_1` varchar(255) NOT NULL,
+  `description_1` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `menu`
 --
 
-INSERT INTO `menu` (`id`, `subid`, `order`, `title`, `description`, `pic`, `created`, `updated`, `visible`, `color`) VALUES
-(7, 0, 0, 'Мэдээ', '', '', 1445964999, 1581919332, 1, '#24d559'),
-(8, 0, 2, 'Нийгэм', '', '', 1445965062, 1662535893, 1, '#1c0af5'),
-(9, 0, 3, 'Эдийн засаг', '', '', 1445965175, 1662535909, 1, '#4d87ce'),
-(12, 0, 5, 'Видео', '', '', 1580748211, 1580749937, 1, '#3ac837'),
-(13, 0, 1, 'Улс төр', '', '', 1580748235, 1662535875, 1, '#ec3737'),
-(14, 0, 4, 'Яамдын сонин', '', '', 1662535936, 1662535936, 1, '#00bd5b'),
-(15, 0, 6, 'Бусад', '', '', 1662535946, 1662535946, 1, '#000000');
+INSERT INTO `menu` (`id`, `subid`, `order`, `title_0`, `description_0`, `pic`, `created`, `updated`, `visible`, `color`, `title_1`, `description_1`) VALUES
+(7, 0, 0, 'Home', '', '', 1445964999, 1675237355, 1, NULL, 'Homee', ''),
+(8, 0, 2, 'Нийгэм', '', '', 1445965062, 1662535893, 1, '#1c0af5', '', ''),
+(9, 0, 3, 'Эдийн засаг', '', '', 1445965175, 1662535909, 1, '#4d87ce', '', ''),
+(12, 0, 5, 'Видео', '', '', 1580748211, 1580749937, 1, '#3ac837', '', ''),
+(13, 0, 1, 'Улс төр', '', '', 1580748235, 1662535875, 1, '#ec3737', '', ''),
+(14, 0, 4, 'Яамдын сонин', '', '', 1662535936, 1662535936, 1, '#00bd5b', '', ''),
+(15, 0, 6, 'Бусад', '', '', 1662535946, 1662535946, 1, '#000000', '', '');
 
 -- --------------------------------------------------------
 
@@ -539,6 +577,62 @@ CREATE TABLE `tags` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `testiminols`
+--
+
+CREATE TABLE `testiminols` (
+  `id` int(255) NOT NULL,
+  `menu` varchar(255) DEFAULT NULL,
+  `order` int(255) NOT NULL,
+  `pic` varchar(255) DEFAULT NULL,
+  `title_0` varchar(255) NOT NULL,
+  `title_1` varchar(255) DEFAULT NULL,
+  `title_2` varchar(255) DEFAULT NULL,
+  `title_3` varchar(255) DEFAULT NULL,
+  `title_4` varchar(255) DEFAULT NULL,
+  `content_0` text DEFAULT NULL,
+  `content_1` text DEFAULT NULL,
+  `content_2` text DEFAULT NULL,
+  `content_3` text DEFAULT NULL,
+  `content_4` text DEFAULT NULL,
+  `rating` double(255,3) DEFAULT NULL,
+  `created` int(255) NOT NULL,
+  `updated` int(255) NOT NULL,
+  `visible` int(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `testiminols`
+--
+
+INSERT INTO `testiminols` (`id`, `menu`, `order`, `pic`, `title_0`, `title_1`, `title_2`, `title_3`, `title_4`, `content_0`, `content_1`, `content_2`, `content_3`, `content_4`, `rating`, `created`, `updated`, `visible`) VALUES
+(11, 'fa-money', 0, '', 'Компанийн ба Худалдааны эрх зүй', 'Corporate & Commercial law', '公司综合类业务', '会社法・商法', '회사 및 무역 법률 ', '', '', '', '', '', NULL, 1485710722, 1486391986, 1),
+(12, 'fa-bank', 4, '', 'Хөрөнгийн зах зээл ба Үнэт цаас', 'Capital market & Securities', '资本市场和证券', '資本市場及び証券', '주식 시장 및 채권 ', '', '', '', '', '', NULL, 1485870409, 1486392210, 1),
+(13, 'fa-archive', 5, '', 'Компани нэгтгэх ба Хувьцаа худалдан авах', 'Mergers & Acquisitions', '公司兼并与收购', '会社の合併及び株の取得', '회사 병합 및 주식 구매 ', '', '', '', '', '', NULL, 1485870809, 1486392290, 1),
+(14, 'fa-briefcase', 6, '', 'Банк, Санхүү ба Даатгал', 'Banking, Finance and Insurance', '银行与非银行金融类业务', '銀行、ファイナンス及び保険', '은행, 금융 및 보험 ', '', '', '', '', '', NULL, 1485870951, 1486392348, 1),
+(15, 'fa-handshake-o', 7, '', 'Хөрөнгө оруулалт ба Хөрөнгө зуучлах', 'Private Equity and Investment', '投资与房产中介', '投資及びマーケティング投資 ', '투자 및 투자중개', '', '', '', '', '', NULL, 1485871120, 1486392414, 1),
+(16, 'fa-diamond', 8, '', 'Уул уурхай ба Эрдэс баялаг', 'Mining & Metals', '矿业与能源', '鉱業及び鉱物資源', '광산 및 자원 ', '', '', '', '', '', NULL, 1485871476, 1486392479, 1),
+(17, 'fa-globe', 9, '', 'Газрын тос, Байгалийн хий ба Эрчим хүч', 'Oil, Gas and Energy', '石油，天然气和电力', '石油、ガス及びエネルギー', '석유, 천연가스 및 에너지 ', '', '', '', '', '', NULL, 1485871654, 1486392554, 1),
+(18, 'fa-percent', 10, '', 'Татвар', 'Taxation', '税务', '税務', '세금', '', '', '', '', '', NULL, 1485871706, 1486392655, 1),
+(19, 'fa-home', 11, '', 'Үл хөдлөх хөрөнгө ба Барилга', 'Real Estate & Construction', '房地产与建设工程', '不動産及び建築', '부동산 및 건설 ', '', '', '', '', '', NULL, 1485872173, 1486392703, 1),
+(20, 'fa-pencil-square-o', 12, '', 'Лиценз ба Зөвшөөрөл', 'Licensing & Permitting', '资质与许可证', '監察及び特別免許状', '라이센스 및 특허 ', '', '', '', '', '', NULL, 1485872324, 1486392785, 1),
+(21, 'fa-users', 13, '', 'Засгийн газрын харилцаа ба Цагаачлал', 'Government relations & Immigration', '政府法律事务和移民', '行政関係及び移民', '정부관계 및 이민 ', '', '', '', '', '', NULL, 1485872451, 1486392874, 1),
+(22, 'fa-file-pdf-o', 14, '', 'Концесс ба Тендер', 'Concession & Procurement', 'BT模式的投资和招标', '譲歩及び入札', '컨세이션 및 입찰 ', '', '', '', '', '', NULL, 1485872677, 1486392950, 1),
+(23, 'fa-cubes', 2, '', 'Инженеринг, Худалдан авах ажиллагаа ба Барилга байгууламж (EPC)', 'Engineering, Procurement and Construction (EPC)', '(EPC)工程总承包和分包', 'エンジニアリング、及び建設', '설계, 조달, 시공(EPC) ', '', '', '', '', '', NULL, 1485872840, 1623335902, 1),
+(24, 'fa-address-card', 15, '', 'Хөдөлмөрийн харилцаа ба Ажил эрхлэлт', 'Labor & Employment', '劳动纠纷', '労働法及び雇用', '근로관계 및 근무 ', '', '', '', '', '', NULL, 1485872975, 1486393065, 1),
+(25, 'fa-lightbulb-o', 16, '', 'Патент, Барааны тэмдэг ба Оюуны өмч', 'Patents, Trademarks and Intellectual Property', '专利，知识产权', '特許、商標および知的財産', '특허, 상표, 지적 재산 ', '', '', '', '', '', NULL, 1485873114, 1486393125, 1),
+(26, 'fa-road', 17, '', 'Дэд бүтэц ба Зам тээвэр', 'Infrastructure & Transport', '基础设施与公路', 'インフラ及び交通', '인프라 및 운송 ', '', '', '', '', '', NULL, 1485873257, 1486393174, 1),
+(27, 'fa-legal', 18, '', 'Арбитр ба Шүүхийн маргаан', 'Arbitration & Litigation', '仲裁与法院', '仲裁及び裁判所', '중재 및 법원 분쟁 ', '', '', '', '', '', NULL, 1485873401, 1486393234, 1),
+(28, 'fa-male', 19, '', 'Дампуурлын эрх зүй', 'Bankruptcy', '企业破产法律服务', '破産法', '파산 관련 법률 ', '', '', '', '', '', NULL, 1485873574, 1486393286, 1),
+(29, 'fa-camera-retro', 20, '', 'Аялал жуулчлал ба Зочид буудал', 'Tourism & Hotels', '旅游与酒店', '', '관광 및 호텔 ', '', '', '', '', '', NULL, 1485873671, 1486393464, 1),
+(30, 'fa-sitemap', 21, '', 'Өв залгамжлал ба Гэр бүлийн эрх зүй', 'Inheritance, Will and Family law', '资产继承与婚姻纠纷', '相続及び家族法', '상속 및 가정 관련 법률 ', '', '', '', '', '', NULL, 1485875122, 1486393646, 1),
+(31, 'fa-microchip', 22, '', 'Хэвлэл мэдээлэл, Холбоо харилцаа ба Технологи', 'Telecommunications, Media and Technology', '媒体，通讯技术', 'IT・通信', '언론 매체, 통신수단 및 기술 ', '', '', '', '', '', NULL, 1485875156, 1486393531, 1),
+(32, 'fa-leaf', 1, '', 'Байгаль орчин, Эрүүл мэнд ба Аюулгүй ажиллагаа', 'Environment, Health and Safety', '环境，卫生与安全', '環境、医療及び安全業務', '자연환경, 보건및 안전 ', '', '', '', '', '', NULL, 1485875322, 1623335860, 1),
+(33, 'fa-pencil-square', 3, '', 'Хуулийн магадлан шалгалт ба Хянан нийцүүлэх үйл ажиллагаа', 'Due Diligence & Legal Compliance', '法律尽职调查和法律检查服务 ', '法的検証 ', '법적 승인 조사 및 이행  ', '', '', '', '', '', NULL, 1485875512, 1486393778, 1);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
@@ -567,7 +661,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `ip_address`, `username`, `password`, `salt`, `email`, `activation_code`, `forgotten_password_code`, `forgotten_password_time`, `remember_code`, `created_on`, `last_login`, `active`, `first_name`, `last_name`, `company`, `phone`) VALUES
-(1, '127.0.0.1', 'administrator', '$2a$07$SeBknntpZror9uyftVopmu61qg0ms8Qv1yV6FG.kQOSM.9QhmTo36', '', 'admin@admin.com', '', NULL, NULL, 'ZDAgTZXtEKlJCXGq1KCfwe', 1268889823, 1662604985, 1, 'janibekm', 'M', 'Big Admin', '70108687'),
+(1, '127.0.0.1', 'administrator', '$2a$07$SeBknntpZror9uyftVopmu61qg0ms8Qv1yV6FG.kQOSM.9QhmTo36', '', 'admin@admin.com', '', NULL, NULL, 'ZDAgTZXtEKlJCXGq1KCfwe', 1268889823, 1675236525, 1, 'janibekm', 'M', 'Big Admin', '70108687'),
 (2, '103.26.195.216', 'xainar d', '$2y$08$ZRFZn5G4dXMfcACEu665aeOD0RcwqPrClsoRYeeXD3EfC7RzfNbZS', NULL, 'xainarbek@gmail.com', NULL, NULL, NULL, NULL, 1446823415, 1446830080, 1, 'Xainar', 'D', 'mlc', '95652645'),
 (3, '66.181.180.122', 'enji enji', '$2y$08$cyCKqNxOcl31dnROzfwoh.zxzSrNPJsEnjpxubSfS/kV7JbLLzbH.', NULL, 'enji@power.mn', NULL, NULL, NULL, 'zW5ONF3vrKbeiEquL6fflO', 1581193805, 1588325014, 1, 'enji', 'enji', 'power.mn', '9999999'),
 (4, '66.181.180.122', 'sarangoo sarangoo', '$2y$08$TSL4qXCGv56aaDH7A/QDsO7f22J4vJ5TFUMvB88Qu0fb/phZMNcJW', NULL, 'sarangoo@power.mn', NULL, NULL, NULL, NULL, 1581193880, 1587093079, 1, 'sarangoo', 'sarangoo', 'power.mn', '9999999');
@@ -664,6 +758,12 @@ ALTER TABLE `groups`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `lang`
+--
+ALTER TABLE `lang`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `login_attempts`
 --
 ALTER TABLE `login_attempts`
@@ -708,6 +808,12 @@ ALTER TABLE `tags`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `testiminols`
+--
+ALTER TABLE `testiminols`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -736,7 +842,7 @@ ALTER TABLE `words`
 -- AUTO_INCREMENT for table `actions`
 --
 ALTER TABLE `actions`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=259;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=263;
 
 --
 -- AUTO_INCREMENT for table `banners`
@@ -761,6 +867,12 @@ ALTER TABLE `files`
 --
 ALTER TABLE `groups`
   MODIFY `id` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `lang`
+--
+ALTER TABLE `lang`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `login_attempts`
@@ -803,6 +915,12 @@ ALTER TABLE `sliders`
 --
 ALTER TABLE `tags`
   MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `testiminols`
+--
+ALTER TABLE `testiminols`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT for table `users`

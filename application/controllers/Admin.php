@@ -94,6 +94,214 @@ class Admin extends CI_Controller {
 			}
 		}
 	}
+	function lang_list(){
+		$data = array();
+		$data['lang'] = $this->admin_model->lang_list();
+		$this->admin_lib->template('lang_list');
+	}
+	function lang_edit($id=0){
+		$data = array();
+		if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+			$time = now();
+			$data['id'] = $id;
+			$data['subid'] = 0+$this->input->post('subid');
+			$data['title_0'] = $this->input->post('title_0');
+			$data['title_1'] = $this->input->post('title_1');
+			$data['title_2'] = $this->input->post('title_2');
+			$data['title_3'] = $this->input->post('title_3');
+			$data['title_4'] = $this->input->post('title_4');
+			$data['description'] = $this->input->post('description');
+			$data['url'] = $this->input->post('url');
+			$data['target'] = $this->input->post('target');
+			$data['updated'] = $time;
+			$data['visible'] = 0+$this->input->post('visible');
+			$this->admin_model->lang_edit($data);
+			$action = array('id' => '',
+						'user_id' => $this->config->item('user_id'),
+						'user_name' => $this->config->item('user_name'),
+						'icon' => 'fa fa-pencil',
+						'action' => 'Мэдээний ангилал засагдлаа',
+						'link' => base_url().'admin/lang_edit/'.$id,
+						'date' => date('Y-m-d H-i-s'));
+			$this->admin_model->action($action);
+			unset($_POST);
+			redirect('admin/lang_list','refresh');
+		}
+		else {
+			$data['menu'] = $this->admin_model->get_lang($id);
+			//$data['menus'] = $this->get_menus(0,$data['menu']['id'],$data['menu']['subid']);
+			$this->admin_lib->template('lang_edit',$data);
+		}
+	}
+	function testiminol_add(){
+		$data = array();
+		$data['path'] = 'img/testiminols/';		
+		$data['width'] = 800;
+		$data['height'] = 800;
+		if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+			$time = now();
+			$data['pic']= "";
+			$pic = $this->input->post('cover_image',false);
+			if($pic !== "" && $pic !=null){
+				$pic1 = $pic;
+				$pos  = strpos($pic, ';');
+				$type = explode(':', substr($pic1, 0, $pos))[1];
+				$ext = explode('/',$type);
+				list($type, $pic) = explode(';', $pic);
+				list(, $pic)      = explode(',', $pic);
+				$pic = base64_decode($pic);
+				$filename = $this->config->item('filename').now().'.'.$ext[1];
+				file_put_contents($data['path'].$filename, $pic);
+				$picpath = $data['path'].$filename;
+				if(read_file($picpath)){
+				  $data['pic'] = $picpath;
+				}
+			}
+			$data['title_0'] = $this->input->post('title_0');
+			$data['menu'] = $this->input->post('menu');
+			//$data['description_0'] = $this->input->post('description_0');
+			$data['content_0'] = $this->input->post('content_0',false);
+			$data['order'] = 0;
+			$data['visible'] = 1;
+			$data['created'] = $time;
+			$data['updated'] = $time;
+			unset($data['path']);
+			unset($data['width']);
+			unset($data['height']);
+			$id = $this->admin_model->testiminol_add($data);
+			$action = array('id' => '',
+						'user_id' => $this->config->item('user_id'),
+						'user_name' => $this->config->item('user_name'),
+						'icon' => 'fa fa-plus',
+						'action' => 'Хэрэглэгчийн сэтгэгдэл нэмэгдлээ',
+						'link' => base_url().'admin/testiminol_edit/'.$id,
+						'date' => date('Y-m-d H-i-s'));
+			$this->admin_model->action($action);
+			unset($_POST);
+			redirect('admin/testiminol_list','refresh');
+		}
+		else {
+			$data['iconm'] = $this->admin_model->iconm();
+			$this->admin_lib->template('testiminol_add',$data);
+		}
+	}
+	function testiminol_edit($id = 0){
+		$data = array();
+		$data['path'] = 'img/testiminols/';	
+		$data['width'] = 800;
+		$data['height'] = 800;
+		if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+			$time = now();
+			$data['pic']=$this->input->post('cover_image_url');
+			$pic = $this->input->post('cover_image',false);
+			if($pic !== "" && $pic !=null){
+				$pic1 = $pic;
+				$pos  = strpos($pic, ';');
+				$type = explode(':', substr($pic1, 0, $pos))[1];
+				$ext = explode('/',$type);
+				list($type, $pic) = explode(';', $pic);
+				list(, $pic)      = explode(',', $pic);
+				$pic = base64_decode($pic);
+				$filename = $this->config->item('filename').now().'.'.$ext[1];
+				file_put_contents($data['path'].$filename, $pic);
+				$picpath = $data['path'].$filename;
+				if(read_file($picpath)){
+				  if(read_file($data['pic'])){ unlink($data['pic']);}
+				  $data['pic'] = $picpath;
+				}
+			}
+			$data['id'] = $id;
+			$data['menu'] = $this->input->post('menu');
+			$data['title_0'] = $this->input->post('title_0');
+			$data['title_1'] = $this->input->post('title_1');
+			$data['title_2'] = $this->input->post('title_2');
+			$data['title_3'] = $this->input->post('title_3');
+			$data['title_4'] = $this->input->post('title_4');
+			$data['content_0'] = $this->input->post('content_0');
+			$data['content_1'] = $this->input->post('content_1');
+			$data['content_2'] = $this->input->post('content_2');
+			$data['content_3'] = $this->input->post('content_3');
+			$data['content_4'] = $this->input->post('content_4');
+			//$data['content_0'] = $this->input->post('content_0',false);
+			//$data['content_1'] = $this->input->post('content_1',false);
+			$data['order'] = 0+$this->input->post('order');
+			$data['visible'] = 0+$this->input->post('visible');
+			$data['updated'] = $time;
+			unset($data['path']);
+			unset($data['width']);
+			unset($data['height']);
+			$id = $this->admin_model->testiminol_edit($data);
+			$action = array('id' => '',
+						'user_id' => $this->config->item('user_id'),
+						'user_name' => $this->config->item('user_name'),
+						'icon' => 'fa fa-plus',
+						'action' => 'Хэрэглэгчийн сэтгэгдэл засагдлаа',
+						'link' => base_url().'admin/testiminol_edit/'.$id,
+						'date' => date('Y-m-d H-i-s'));
+			$this->admin_model->action($action);
+			unset($_POST);
+			redirect('admin/testiminol_list','refresh');
+		}
+		else {
+			$data['iconm'] = $this->admin_model->iconm();
+			$data['testiminol'] = $this->admin_model->get_testiminol($id);
+			$this->admin_lib->template('testiminol_edit',$data);
+		}
+	}
+	function testiminol_delete($id = 0){
+		$data = $this->admin_model->get_testiminol($id);
+		$key = $this->admin_model->testiminol_delete($id);
+		if($key==0){
+			if(read_file($data['pic'])){	unlink($data['pic']);	}
+			$action = array('id' => '',
+							'user_id' => $this->config->item('user_id'),
+							'user_name' => $this->config->item('user_name'),
+							'icon' => 'fa fa-trash',
+							'action' => 'Хэрэглэгчийн сэтгэгдэл устгагдлаа: '.$data['title'],
+							'link' => '#',
+							'date' => date('Y-m-d H-i-s'));
+			$this->admin_model->action($action);
+			redirect('/admin/testiminol_list');
+		}
+		else if($key==1451) {	echo "Энэхүү ангилалд хамааралтай мэдээлэл байгаа тул устгах боломжгүй байна!";	}
+		else {	echo "Үйлдэл гүйцэтгэх  явцад алдаа гарлаа!";	}
+		exit();
+	}
+	function testiminol_visible($id = 0,$value = 0){
+		$filter = array(
+		'id' => $id,
+		'visible' =>$value,
+		'updated' =>now()
+		);
+		$this->admin_model->testiminol_visible($filter);
+		redirect('/admin/testiminol_list');
+	}
+	function testiminol_order()
+	{
+		if($_SERVER['REQUEST_METHOD'] == 'POST') {
+			$order = $this->input->post('order');
+			if( ! empty($order)){
+				$this->admin_model->testiminol_order($order);
+			}
+			unset($_POST);
+		}
+	}
+	function testiminol_list($start=0){
+		$limit = 15;
+		$search = "";
+		$action = "";
+		if(isset($_GET['search'])){	$this->session->set_userdata('search',$this->input->get('search')); }
+		if(isset($_SESSION['search'])){	$search = $this->session->userdata('search'); }
+		if(isset($_GET['limit'])){	$this->session->set_userdata('limit',$this->input->get('limit')); }
+		if(isset($_SESSION['limit'])){	$limit = $this->session->userdata('limit'); }
+		$data = array();
+		$data['start'] = $start;
+		$data['limit'] = $limit;
+		$data['search'] = $search;
+		$data['testiminols'] = $this->admin_model->testiminol_list($data);
+		$this->admin_lib->template('testiminol_list',$data);
+	}
+	
 	function upload(){
 		if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			$data = array();
@@ -180,9 +388,11 @@ class Admin extends CI_Controller {
 		if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			$time = now();
 			$data['subid'] = 0+$this->input->post('subid');
-			$data['title'] = $this->input->post('title');
 			$data['color'] = $this->input->post('color');
-			$data['description'] = $this->input->post('description');
+			$data['title_0'] = $this->input->post('title_0');
+			$data['title_1'] = $this->input->post('title_1');		
+			$data['description_0'] = $this->input->post('description_0');
+			$data['description_1'] = $this->input->post('description_1');
 			$data['created'] = $time;
 			$data['updated'] = $time;
 			$data['visible'] = 0+$this->input->post('visible');
@@ -210,9 +420,13 @@ class Admin extends CI_Controller {
 			$time = now();
 			$data['id'] = $id;
 			$data['subid'] = 0+$this->input->post('subid');
-			$data['title'] = $this->input->post('title');
+
+			$data['title_0'] = $this->input->post('title_0');
+			$data['title_1'] = $this->input->post('title_1');		
+			$data['description_0'] = $this->input->post('description_0');
+			$data['description_1'] = $this->input->post('description_1');
 			$data['color'] = $this->input->post('color');
-			$data['description'] = $this->input->post('description');
+	
 			$data['updated'] = $time;
 			$data['visible'] = 0+$this->input->post('visible');
 			$this->admin_model->menu_edit($data);
@@ -283,7 +497,7 @@ class Admin extends CI_Controller {
 		if($count==0){	$list .=  "<option value=\"0\">Байхгүй</option>";	}
 		foreach($result as $row) {
 			if($row['id']!==$current){
-			$list .= "<option value=\"{$row['id']}\" ".(($row['id']==$select)?"selected=\"selected\"":"").">".str_repeat(" - ",$count).$row['title']."</option>";
+			$list .= "<option value=\"{$row['id']}\" ".(($row['id']==$select)?"selected=\"selected\"":"").">".str_repeat(" - ",$count).$row['title_0']."</option>";
 			}
 			$list .= $this->get_menus($row['id'],$current,$select,$count+2);
 		}

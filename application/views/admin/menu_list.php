@@ -26,7 +26,7 @@
 					$list =  "<ol class=\"dd-list pb15\">";
 						foreach($result->result_array() as $row) {
 							$list .=  "<li class=\"dd-item {$class}\" data-id=\"{$row['id']}\">";
-								$list .=  "<div class=\"dd-handle\">{$row['order']}: {$row['title']}</div>
+								$list .=  "<div class=\"dd-handle\">{$row['order']}: {$row['title_0']}</div>
 								<div class=\"dd-content\">
 									<div class=\"media\">
 									<div class=\"pull-right fs11 fw600 btn-group text-right\">
@@ -49,7 +49,7 @@
 													<h4 class=\"modal-title\" id=\"myModalLabel\">Устгахад итгэлтэй байна уу?</h4>
 												</div>
 												<div class=\"modal-body\">
-													Та ".$row['title']."-г устгах гэж байна!
+													Та ".$row['title_0']."-г устгах гэж байна!
 												</div>
 												<div class=\"modal-footer\">
 													<button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Болих</button>
@@ -65,10 +65,10 @@
 										<img ".(($row['pic']==="")?"":"src='".base_url().$row['pic']."'")." style=\"width:46px;height:42px;\" data-src=\"holder.js/46x42/text:зураг\" alt=\"holder-img\">
 									</a>
 									<div class=\"media-body\">
-									<h4 class=\"media-heading\">{$row['title']}
+									<h4 class=\"media-heading\">{$row['title_0']}
 										<small class=\"text-muted\">- ".date('Y-m-d H-i-s',$row['created'])."</small>
 									</h4>
-									<p class=\"mb5\">{$row['description']}</p>
+									<p class=\"mb5\">{$row['description_0']}</p>
 									<p class=\"mb5\">
 										<a class=\"text-system\" target=\"_blank\" href=\"{$row['id']}\"> Гадаад холбоос</a>
 									</p>

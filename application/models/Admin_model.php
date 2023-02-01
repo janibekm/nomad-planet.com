@@ -25,8 +25,53 @@ class Admin_model extends CI_Model {
 			return true;
 		}
 	}
+	function iconm(){
+		$this->db->order_by('id','asc');
+		return $this->db->get('icons')->result_array();
+	}
+	public function get_lang($id){
+		return $this->db->get_where('lang',array('id'=>$id))->row_array();
+	}
+	public function get_testiminol($id=0){
+		$this->db->where('id',$id);
+		$this->db->limit(1);
+		return $this->db->get('testiminols')->row_array();
+	}
+	public function testiminol_add($data){
+		$this->db->insert('testiminols',$data);
+		return $this->db->insert_id();
+	}
+	public function testiminol_edit($data = array()) {
+		$this->db->update('testiminols',$data,array('id' => $data['id']));
+	}
+	public function testiminol_delete($id) {
+		$this->db->delete('testiminols',array('id' => $id));
+	}
+	public function testiminol_visible($filter = array()) {
+		$this->db->update('testiminols',$filter,array('id' => $filter['id']));
+	}
+	public function testiminol_list() {
+		$this->db->order_by('order','asc');
+		return $this->db->get('testiminols')->result_array();
+	}
+	public function testiminol_order($order)
+	{
+		if (is_array($order)) {
+			foreach ($order as $key => $id) {
+				$this->db->where('id',$id);
+				$this->db->set('order', $key);
+				$this->db->update('testiminols');
+			}
+		}
+	}
 	function count_table($table){
 		return $this->db->count_all($table);
+	}
+	public function lang_list() {
+		return $this->db->get('lang')->result_array();
+	}
+	public function lang_edit($data = array()) {
+		$this->db->update('lang',$data,array('id' => $data['id']));
 	}
 	/*  posts  */
 	public function menu_add($data){

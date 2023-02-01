@@ -101,111 +101,111 @@
 				<span class="sidebar-title">Хэл</span>
 			</a>
 		  </li>
-		  <li class="sidebar-label pt20">Мэдээ</li>
+		  <li class="sidebar-label pt20">Tours</li>
 		 
 		  <li>
         <a href="<?=base_url();?>admin/post_add">
           <span class="glyphicon glyphicon-pencil"></span>
-          <span class="sidebar-title">Мэдээ нэмэх</span>
+          <span class="sidebar-title">Tour add</span>
         </a>
 		  </li>
 		  <li>
 			  <a href="<?=base_url();?>admin/post_list">
 				<span class="glyphicon glyphicon-duplicate"></span>
-				<span class="sidebar-title">Мэдээний жагсаалт</span>
+				<span class="sidebar-title">Tour list</span>
 			</a>
 		  </li>
       <li>
 			<a href="<?=base_url();?>admin/post_list_mostread">
 				<span class="glyphicon glyphicon-duplicate"></span>
-				<span class="sidebar-title">Хамгийн их уншсан</span>
+				<span class="sidebar-title">Highlited tours</span>
 			</a>
 		  </li>
 		  <li>
             <a class="accordion-toggle" href="#">
               <span class="glyphicon glyphicon-tags"></span>
-              <span class="sidebar-title">Мэдээний ангилал</span>
+              <span class="sidebar-title">Tour menu</span>
               <span class="caret"></span>
             </a>
             
             <ul class="nav sub-nav">
               <li>
 				<a href="<?=base_url();?>admin/menu_add">
-                <span class="glyphicon glyphicon-plus-sign"></span>Нэмэх</a>
+                <span class="glyphicon glyphicon-plus-sign"></span>Add</a>
               </li>
               <li>
                 <a href="<?=base_url();?>admin/menu_list">
-                <span class="glyphicon glyphicon-list"></span>Жагсаалт</a>
+                <span class="glyphicon glyphicon-list"></span>List</a>
               </li>
             </ul>
           </li>
           <li>
             <a class="accordion-toggle" href="#">
               <span class="fa fa-bars"></span>
-              <span class="sidebar-title">Манай баг</span>
+              <span class="sidebar-title">About Mongolia</span>
               <span class="caret"></span>
             </a>
             <ul class="nav sub-nav">
 				<li>
 					<a href="<?=base_url();?>admin/project_add">
-					  <span class="glyphicon glyphicon-plus-sign"></span>Нэмэх </a>
+					  <span class="glyphicon glyphicon-plus-sign"></span>Add </a>
 				</li>
 				<li>
 					<a href="<?=base_url();?>admin/project_list">
-					  <span class="glyphicon glyphicon-list"></span>Жагсаалт</a>
+					  <span class="glyphicon glyphicon-list"></span>List</a>
 				</li>
             </ul>
           </li>
-          <li class="sidebar-label pt20">Слайдер</li>
+          <li class="sidebar-label pt20">Slider</li>
 		  <li>
 			<a href="<?=base_url();?>admin/slider_add">
 				<span class="fa fa-picture-o"></span>
-				<span class="sidebar-title">Слайдер нэмэх</span>
+				<span class="sidebar-title">Slider Add</span>
 			</a>
 		  </li>
 		  <li>
 			<a href="<?=base_url();?>admin/slider_list">
 				<span class="fa fa-desktop"></span>
-				<span class="sidebar-title">Слайдерийн жагсаалт</span>
+				<span class="sidebar-title">Slider List</span>
 			</a>
 		  </li>
-      <li class="sidebar-label pt20">Хэрэглэгчдийн сэтгэгдэл</li>
+      <li class="sidebar-label pt20">Testimonials</li>
 		  <li>
 			<a href="<?=base_url();?>admin/testiminol_add">
 				<span class="fa fa-comment"></span>
-				<span class="sidebar-title">Сэтгэгдэл нэмэх</span>
+				<span class="sidebar-title">Add</span>
 			</a>
 		  </li>
 		  <li>
 			<a href="<?=base_url();?>admin/testiminol_list">
 				<span class="fa fa-comments"></span>
-				<span class="sidebar-title">Сэтгэгдлийн жагсаалт</span>
+				<span class="sidebar-title">List</span>
 			</a>
 		  </li>
-      <li class="sidebar-label pt20">Цэс</li>
+      <li class="sidebar-label pt20">Menu</li>
 		  <li>
 			<a href="<?=base_url();?>admin/menu_add">
 				<span class="glyphicon glyphicon-plus-sign"></span>
-				<span class="sidebar-title">Цэс нэмэх</span>
+				<span class="sidebar-title">Menu add</span>
 			</a>
 		  </li>
 		  <li>
 			<a href="<?=base_url();?>admin/menu_list">
 				<span class="fa fa-tags"></span>
-				<span class="sidebar-title">Цэсний жагсаалт</span>
+				<span class="sidebar-title">Menu list</span>
 			</a>
 		  </li>
-		  <li class="sidebar-label pt20">Үйл явдал</li>
+		  <li class="sidebar-label pt20">Events</li>
 		  <li>
 			<a href="<?=base_url();?>admin/event_add">
 				<span class="glyphicon glyphicon-pencil"></span>
-				<span class="sidebar-title">Үйл явдал нэмэх</span>
+				<span class="sidebar-title">Event add</span>
 			</a>
 		  </li>
 		  <li>
 			<a href="<?=base_url();?>admin/event_list">
 				<span class="glyphicon glyphicon-duplicate"></span>
-				<span class="sidebar-title">Үйл явдал жагсаалт</span>
+				<span class="sidebar-title">Event list</span>
 			</a>
 		  </li>
 		  <li> 
@@ -255,23 +255,23 @@
               </li>
             </ul>
           </li>-->
-		  <li class="sidebar-label pt20">Сурталчилгаа</li>
+		  <li class="sidebar-label pt20">Banner</li>
 		  <li>
 			<a href="<?=base_url();?>admin/banner_add">
 				<span class="glyphicon glyphicon-film"></span>
-				<span class="sidebar-title">Сурталчилгаа нэмэх</span>
+				<span class="sidebar-title">Add</span>
 			</a>
 		  </li>
 		  <li>
 			<a href="<?=base_url();?>admin/banner_list">
 				<span class="glyphicon glyphicon-duplicate"></span>
-				<span class="sidebar-title">Сурталчилгааны жагсаалт</span>
+				<span class="sidebar-title">List</span>
 			</a>
 		  </li>
       <li>
 			<a href="<?=base_url();?>admin/words">
 				<span class="fa fa-font"></span>
-				<span class="sidebar-title">Үгийн сан</span>
+				<span class="sidebar-title">Words</span>
 			</a>
 		  </li>
       </ul>

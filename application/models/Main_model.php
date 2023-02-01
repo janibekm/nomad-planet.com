@@ -47,7 +47,7 @@ class Main_model extends CI_Model {
 		return $this->db->get('banners')->result_array();
 	}
 	public function getontsloh($limit){
-		$this->db->select('posts.*,menu.title as menu_title, menu.color as menu_color');
+		$this->db->select('posts.*,menu.title_0 as menu_title, menu.color as menu_color');
 		$this->db->from('posts');
 		$this->db->join('menu', 'menu.id = posts.menu');
 		$this->db->where('posts.visible',1);
